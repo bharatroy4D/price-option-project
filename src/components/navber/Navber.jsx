@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import Link from '../link/Link';
 import { IoIosMenu } from "react-icons/io";
-
-
+import { IoCloseSharp } from "react-icons/io5";
 
 const Navber = () => {
-    const [open, setOpen] = useState(false);
+    const [open, setOpen] = useState(true);
 
     const routes = [
         { id: 1, path: "/", name: "Home" },
@@ -16,12 +15,15 @@ const Navber = () => {
 
     return (
         <div>
-            <div onClick={() =>setOpen(!open)} className='text-3xl '>
+            <div onClick={() => setOpen(!open)} className='text-3xl md:hidden  bg-yellow-100 p-2'>
                 {
-                    open === true? 'open':'close'
+                    open === true ? <IoIosMenu />
+                        : <IoCloseSharp />
                 }
             </div>
-            <ul className='md:flex gap-5 text-xl font-medium'>
+            <ul className={`md:flex gap-5  text-xl font-medium 
+            ${open? '':'hidden'}
+                bg bg-yellow-100 p-4 absolute md:static top-10 `}>
                 {
                     routes.map(route => <Link
                         key={route.id}
