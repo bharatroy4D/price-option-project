@@ -21,8 +21,8 @@ const Navber = () => {
                         : <IoCloseSharp />
                 }
             </div>
-            <ul className={`md:flex gap-5  text-xl font-medium 
-            ${open? '':'hidden'}
+            <ul className={`md:flex gap-5 text-xl font-medium duration-1000
+            ${open? '-left-40':'left-0'}
                 bg bg-yellow-100 p-4 absolute md:static top-10 `}>
                 {
                     routes.map(route => <Link
